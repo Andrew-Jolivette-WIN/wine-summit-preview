@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="180" viewBox="0 0 120 180" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- A repeating hand-drawn vine; decorative only. -->
+  <path d="M18 0C5 25 32 43 20 68S7 109 20 137S25 166 18 180"/>
+  <path d="M20 35C32 20 44 25 40 32C36 38 30 29 36 27M18 111C29 97 44 103 39 111C35 117 29 110 34 107"/>
+  <path d="M20 55C31 48 39 49 43 60M20 137C32 130 43 134 48 145"/>
+  <path d="M21 47C12 47 5 42 4 34L12 35L13 27C24 30 28 39 21 47ZM22 126C11 125 5 118 6 110L14 112L16 104C25 108 28 117 22 126Z"/>
+  <path d="M43 60L46 53M48 145L52 137"/>
+  <g>
+    <circle cx="37" cy="65" r="6"/><circle cx="49" cy="65" r="6"/>
+    <circle cx="31" cy="76" r="6"/><circle cx="43" cy="76" r="6"/><circle cx="55" cy="76" r="6"/>
+    <circle cx="37" cy="87" r="6"/><circle cx="49" cy="87" r="6"/><circle cx="43" cy="98" r="6"/>
+  </g>
+  <path d="M111 0C100 22 111 42 104 62S104 95 114 110S107 155 111 180M105 61C93 52 85 56 89 64C93 69 98 63 94 60"/>
+  <path d="M106 86C92 86 85 77 88 69L96 72L100 65C110 70 113 78 106 86Z"/>
+  <g>
+    <circle cx="42" cy="150" r="6"/><circle cx="54" cy="150" r="6"/>
+    <circle cx="36" cy="161" r="6"/><circle cx="48" cy="161" r="6"/><circle cx="60" cy="161" r="6"/>
+    <circle cx="42" cy="172" r="6"/><circle cx="54" cy="172" r="6"/>
+  </g>
+</svg>

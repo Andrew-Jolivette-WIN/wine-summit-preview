@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="assets/css/styles.css">
   <script defer src="assets/js/main.js"></script>
 </head>
-<body>
+<body class="page--program-first">
   <a class="skip-link" href="#main-content">Skip to content</a>
 
   <header class="site-header" aria-label="Site header">
@@ -24,7 +24,6 @@
         <span class="wordmark wordmark--wbi">Wine Business Institute<br><small>Sonoma State University</small></span>
       </div>
 
-      <a class="button button--compact button--light" href="#register">Register Free</a>
     </div>
   </header>
 
@@ -34,14 +33,8 @@
       <div class="shell hero__grid">
         <div class="hero__content">
           <p class="eyebrow eyebrow--light">An interactive online videocast series</p>
-          <h1 id="hero-title">Wine Business<br><span>Innovation Summit Series</span></h1>
+          <h1 id="hero-title">Wine Business <span>Innovation Summit Series</span></h1>
           <p class="hero__lead">Practical ideas from the people finding new ways forward in today’s changing wine business.</p>
-          <p class="hero__copy">Join industry leaders, researchers, and innovators for prerecorded presentations that premiere with live audience chat, then remain available to watch on demand.</p>
-
-          <div class="hero__actions" aria-label="Primary actions">
-            <a class="button button--primary" href="#register">Register for Series Updates</a>
-            <a class="button button--ghost" href="#schedule">Explore the Schedule</a>
-          </div>
 
           <ul class="hero__facts" aria-label="Series facts">
             <li>Free to watch</li>
@@ -50,67 +43,30 @@
           </ul>
         </div>
 
-        <div class="hero__media">
-          <div class="video-frame">
-            <div class="video-frame__topline">
-              <span>Welcome to the series</span>
-              <span>2:05</span>
-            </div>
-            <video controls preload="metadata" poster="assets/images/teaser-poster.jpg">
-              <source src="assets/video/innovation-summit-series-welcome.mp4" type="video/mp4">
-              Your browser does not support embedded video.
-            </video>
-            <div class="video-frame__caption">
-              <span class="video-frame__caption-label">Series introduction</span>
-            </div>
-          </div>
-          <p class="hero__media-note">Presented by the Wine Business Institute at Sonoma State University and Wine Industry Network.</p>
-        </div>
       </div>
     </section>
 
-    <section class="signal-bar" aria-label="Series launch information">
-      <div class="shell signal-bar__inner">
-        <div>
-          <span class="signal-bar__label">Series begins</span>
-          <strong>September 22, 2026</strong>
+    <nav class="program-nav" aria-label="Explore the series" data-program-nav>
+      <div class="shell program-nav__inner">
+        <div class="program-nav__links">
+          <a href="#first-presentation" aria-current="location">First presentation</a>
+          <a href="#schedule">Full schedule</a>
+          <a href="#about-series">About the series</a>
+          <a href="#participation">How to participate</a>
+          <a href="#archive">On demand</a>
+          <a href="#partners">Partners</a>
+          <a href="#faq">FAQs</a>
         </div>
-        <div>
-          <span class="signal-bar__label">Register once</span>
-          <strong>Stay informed throughout the series</strong>
-        </div>
-        <a href="#register">Get premiere reminders <span aria-hidden="true">→</span></a>
+        <a class="program-nav__register" href="#register">Register free</a>
       </div>
-    </section>
+    </nav>
 
-    <section class="section section--intro" aria-labelledby="working-title">
-      <div class="shell intro-grid">
-        <div class="section-heading">
-          <p class="eyebrow">The focus</p>
-          <h2 id="working-title">The industry’s challenges are well documented. This series asks what is working.</h2>
-        </div>
-        <div class="intro-copy">
-          <p>Across the wine industry, businesses are finding new ways to reach consumers, demonstrate value, manage change, adopt technology, and build resilience. The Wine Business Innovation Summit Series brings those ideas forward so others can learn from them.</p>
-          <div class="topic-cloud" aria-label="Series topics">
-            <span>Consumer relevance</span>
-            <span>Sustainability</span>
-            <span>Market strategy</span>
-            <span>Economics</span>
-            <span>Finance</span>
-            <span>Artificial intelligence</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--feature" aria-labelledby="featured-title">
+    <section class="section section--feature" id="first-presentation" aria-labelledby="featured-title">
       <div class="shell">
         <div class="section-topline">
           <div>
             <p class="eyebrow">First presentation</p>
-            <h2 id="featured-title">Launching September 22</h2>
           </div>
-          <span class="status-pill status-pill--open">Registration open</span>
         </div>
 
         <article class="feature-card">
@@ -121,9 +77,8 @@
           </div>
 
           <div class="feature-card__body">
-            <p class="feature-card__label">From Intimidation to Invitation</p>
-            <h3>Reaching the next generation of wine consumers</h3>
-            <p>This working title and description are placeholders until the final presentation language is confirmed by the partners.</p>
+            <h2 id="featured-title">From Intimidation to Invitation</h2>
+            <p class="feature-card__subtitle">Reaching the next generation of wine consumers</p>
 
             <div class="speakers" aria-label="Featured speakers">
               <div class="speaker">
@@ -135,52 +90,83 @@
                 <span><strong>Jess Druey</strong><small>Speaker details forthcoming</small></span>
               </div>
             </div>
+            <p class="feature-card__provisional">Working title and description; final presentation details forthcoming.</p>
           </div>
 
           <div class="feature-card__aside">
-            <p><strong>Premiere format</strong></p>
+            <p class="feature-card__signup">Free series registration</p>
+            <a class="button button--primary" href="#register">Register for Series Updates</a>
+            <p class="feature-card__signup-note">One signup for the full series. Free to watch; registration is required to submit follow-up questions.</p>
+            <details class="format-details">
+              <summary>Premiere format</summary>
             <ul>
               <li>Prerecorded presentation</li>
               <li>Scheduled premiere</li>
               <li>Live audience chat on YouTube</li>
               <li>Available on demand afterward</li>
             </ul>
-            <a class="button button--dark" href="#register">Register for Updates</a>
+            </details>
           </div>
         </article>
       </div>
     </section>
 
-    <section class="section section--process" aria-labelledby="process-title">
+    <section class="section section--schedule" id="schedule" aria-labelledby="schedule-title">
       <div class="shell">
-        <div class="section-heading section-heading--centered">
-          <p class="eyebrow">More than a video library</p>
-          <h2 id="process-title">Watch the ideas. Join the conversation.</h2>
-          <p>Each presentation is designed to keep the discussion moving beyond the premiere.</p>
+        <div class="section-topline section-topline--schedule">
+          <div>
+            <p class="eyebrow">Upcoming presentations</p>
+            <h2 id="schedule-title">A growing schedule of practical conversations</h2>
+          </div>
         </div>
 
-        <ol class="process-grid">
-          <li class="process-card">
-            <span class="process-card__number">01</span>
-            <h3>Register</h3>
-            <p>Sign up once for premiere announcements, reminders, and series updates.</p>
-          </li>
-          <li class="process-card">
-            <span class="process-card__number">02</span>
-            <h3>Watch</h3>
-            <p>Join each scheduled premiere and participate in the live chat on YouTube.</p>
-          </li>
-          <li class="process-card">
-            <span class="process-card__number">03</span>
-            <h3>Participate</h3>
-            <p>Respond to questions posed during the presentation and submit your own.</p>
-          </li>
-          <li class="process-card">
-            <span class="process-card__number">04</span>
-            <h3>Continue</h3>
-            <p>Watch on demand and return for additional presenter insights and follow-up.</p>
-          </li>
-        </ol>
+        <div class="schedule-grid">
+          <article class="session-card session-card--first">
+            <div class="session-card__meta">
+              <span class="status-pill status-pill--date">September 22</span>
+              <span>Presentation 01</span>
+            </div>
+            <h3>From Intimidation to Invitation</h3>
+            <p class="session-card__subtitle">Working title; final details forthcoming.</p>
+            <p class="session-card__speaker">Stephanie Gallo · Jess Druey</p>
+          </article>
+
+          <article class="session-card">
+            <div class="session-card__meta">
+              <span class="status-pill">October · Date TBA</span>
+              <span>Presentation 02</span>
+            </div>
+            <h3>Sustainability’s value in sales</h3>
+            <p class="session-card__subtitle">A Q&amp;A exploring evidence from O’Neill Family Vintners.</p>
+            <p class="session-card__speaker">Jeff O’Neill</p>
+          </article>
+
+          <article class="session-card">
+            <div class="session-card__meta">
+              <span class="status-pill">November · Date TBA</span>
+              <span>Presentation 03</span>
+            </div>
+            <h3>What do the midterm results mean for the wine industry?</h3>
+            <p class="session-card__speaker">Dave McCuan</p>
+          </article>
+
+          <article class="session-card">
+            <div class="session-card__meta">
+              <span class="status-pill">December · Date TBA</span>
+              <span>Presentation 04</span>
+            </div>
+            <h3>The economy’s peaks versus valleys</h3>
+            <p class="session-card__subtitle">Opportunities for wine businesses looking toward 2030.</p>
+            <p class="session-card__speaker">Rob Eyler</p>
+          </article>
+
+          <article class="session-card session-card--add">
+            <div>
+              <span class="session-card__plus" aria-hidden="true">+</span>
+              <h3>More presentations are in development.</h3>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -194,10 +180,10 @@
             <li>Upcoming presentation dates</li>
             <li>Premiere reminders</li>
             <li>New on-demand releases</li>
-            <li>Audience participation opportunities</li>
+            <li>Submit questions for follow-up sessions</li>
             <li>Presenter follow-up information</li>
           </ul>
-          <p class="registration-copy__note">Registration is encouraged, but it is not required to watch the presentations.</p>
+          <p class="registration-copy__note">Anyone can watch for free. Registration is required to submit questions or request more information about a past session.</p>
         </div>
 
         <div class="form-shell" aria-label="Registration form prototype">
@@ -221,70 +207,73 @@
       </div>
     </section>
 
-    <section class="section section--schedule" id="schedule" aria-labelledby="schedule-title">
-      <div class="shell">
-        <div class="section-topline section-topline--schedule">
-          <div>
-            <p class="eyebrow">Upcoming presentations</p>
-            <h2 id="schedule-title">A growing schedule of practical conversations</h2>
+    <section class="section section--intro" id="about-series" aria-labelledby="working-title">
+      <div class="shell intro-grid">
+        <div class="series-background">
+        <div class="section-heading">
+          <p class="eyebrow">The focus</p>
+          <h2 id="working-title">The industry’s challenges are well documented. This series asks what is working.</h2>
+        </div>
+        <div class="intro-copy">
+          <p>Across the wine industry, businesses are finding new ways to reach consumers, demonstrate value, manage change, adopt technology, and build resilience. The Wine Business Innovation Summit Series brings those ideas forward so others can learn from them.</p>
+          <div class="topic-cloud" aria-label="Series topics">
+            <span>Consumer relevance</span>
+            <span>Sustainability</span>
+            <span>Market strategy</span>
+            <span>Economics</span>
+            <span>Finance</span>
+            <span>Artificial intelligence</span>
           </div>
-          <p>Only confirmed sessions need to appear at launch. New cards can be added as details are finalized.</p>
+        </div>
+        </div>
+        <div class="hero__media">
+          <div class="video-frame">
+            <div class="video-frame__topline">
+              <span>Welcome to the series</span>
+              <span>2:05</span>
+            </div>
+            <video controls preload="metadata" poster="assets/images/teaser-poster.jpg">
+              <source src="assets/video/innovation-summit-series-welcome.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <div class="video-frame__caption">
+              <span class="video-frame__caption-label">Series introduction</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--process" id="participation" aria-labelledby="process-title">
+      <div class="shell">
+        <div class="section-heading section-heading--centered">
+          <p class="eyebrow">More than a video library</p>
+          <h2 id="process-title">Watch the ideas. Join the conversation.</h2>
+          <p>Each presentation is designed to keep the discussion moving beyond the premiere.</p>
         </div>
 
-        <div class="schedule-grid">
-          <article class="session-card session-card--featured">
-            <div class="session-card__meta">
-              <span class="status-pill status-pill--date">September 22</span>
-              <span>Presentation 01</span>
-            </div>
-            <h3>From Intimidation to Invitation</h3>
-            <p class="session-card__subtitle">Working presentation language pending confirmation.</p>
-            <p class="session-card__speaker">Stephanie Gallo · Jess Druey</p>
-            <a href="#register">Register for updates <span aria-hidden="true">→</span></a>
-          </article>
-
-          <article class="session-card">
-            <div class="session-card__meta">
-              <span class="status-pill">October · Date TBA</span>
-              <span>Presentation 02</span>
-            </div>
-            <h3>Sustainability’s value in sales</h3>
-            <p class="session-card__subtitle">A Q&amp;A exploring evidence from O’Neill Family Vintners.</p>
-            <p class="session-card__speaker">Jeff O’Neill</p>
-            <a href="#register">Notify me <span aria-hidden="true">→</span></a>
-          </article>
-
-          <article class="session-card">
-            <div class="session-card__meta">
-              <span class="status-pill">November · Date TBA</span>
-              <span>Presentation 03</span>
-            </div>
-            <h3>What do the midterm results mean for the wine industry?</h3>
-            <p class="session-card__subtitle">Details and premiere timing will be added when confirmed.</p>
-            <p class="session-card__speaker">Dave McCuan</p>
-            <a href="#register">Notify me <span aria-hidden="true">→</span></a>
-          </article>
-
-          <article class="session-card">
-            <div class="session-card__meta">
-              <span class="status-pill">December · Date TBA</span>
-              <span>Presentation 04</span>
-            </div>
-            <h3>The economy’s peaks versus valleys</h3>
-            <p class="session-card__subtitle">Opportunities for wine businesses looking toward 2030.</p>
-            <p class="session-card__speaker">Rob Eyler</p>
-            <a href="#register">Notify me <span aria-hidden="true">→</span></a>
-          </article>
-
-          <article class="session-card session-card--add">
-            <div>
-              <span class="session-card__plus" aria-hidden="true">+</span>
-              <h3>More presentations are in development.</h3>
-              <p>Future sessions can be added without restructuring the page.</p>
-            </div>
-            <a href="#register">Keep me informed <span aria-hidden="true">→</span></a>
-          </article>
-        </div>
+        <ol class="process-grid">
+          <li class="process-card">
+            <span class="process-card__number">01</span>
+            <h3>Register</h3>
+            <p>Sign up once for premiere announcements, reminders, and series updates.</p>
+          </li>
+          <li class="process-card">
+            <span class="process-card__number">02</span>
+            <h3>Watch</h3>
+            <p>Join each scheduled premiere and participate in the live chat on YouTube.</p>
+          </li>
+          <li class="process-card">
+            <span class="process-card__number">03</span>
+            <h3>Ask a question</h3>
+            <p>After a session, registered viewers can submit questions or request more information for later follow-up.</p>
+          </li>
+          <li class="process-card">
+            <span class="process-card__number">04</span>
+            <h3>Continue</h3>
+            <p>Watch on demand and return for additional presenter insights and follow-up.</p>
+          </li>
+        </ol>
       </div>
     </section>
 
@@ -298,11 +287,10 @@
           <h2 id="archive-title">The series library will grow with every premiere.</h2>
           <p>After each presentation goes live, its video, description, participation links, and future follow-up material can live together in a permanent archive.</p>
         </div>
-        <a class="button button--outline" href="#register">Get Release Updates</a>
       </div>
     </section>
 
-    <section class="section section--partners" aria-labelledby="partners-title">
+    <section class="section section--partners" id="partners" aria-labelledby="partners-title">
       <div class="shell">
         <div class="section-heading section-heading--centered">
           <p class="eyebrow">A long-running partnership</p>
@@ -325,12 +313,11 @@
       </div>
     </section>
 
-    <section class="section section--faq" aria-labelledby="faq-title">
+    <section class="section section--faq" id="faq" aria-labelledby="faq-title">
       <div class="shell faq-grid">
         <div>
           <p class="eyebrow">Frequently asked questions</p>
           <h2 id="faq-title">A few useful details before the series begins.</h2>
-          <p>These answers can be updated as the premiere schedule and audience follow-up process are finalized.</p>
         </div>
 
         <div class="accordion" data-accordion>
@@ -344,7 +331,7 @@
           </article>
           <article class="accordion__item">
             <h3><button type="button" aria-expanded="false">Do I need to register to watch?<span aria-hidden="true">+</span></button></h3>
-            <div class="accordion__panel" hidden><p>No. Registration is encouraged so viewers receive premiere reminders, new-release updates, participation opportunities, and follow-up information.</p></div>
+            <div class="accordion__panel" hidden><p>No. Anyone can watch for free. Registration provides series updates and is required to submit questions for follow-up sessions.</p></div>
           </article>
           <article class="accordion__item">
             <h3><button type="button" aria-expanded="false">Can I watch later?<span aria-hidden="true">+</span></button></h3>
@@ -352,21 +339,12 @@
           </article>
           <article class="accordion__item">
             <h3><button type="button" aria-expanded="false">Can I submit a question?<span aria-hidden="true">+</span></button></h3>
-            <div class="accordion__panel" hidden><p>Yes. Presentation pages will offer opportunities to respond to questions and submit questions for later presenter follow-up.</p></div>
+            <div class="accordion__panel" hidden><p>Yes. Registered viewers can submit questions or request more information about a past presentation for consideration in a follow-up session. This is separate from the live audience chat during the premiere.</p></div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="final-cta" aria-labelledby="final-cta-title">
-      <div class="shell final-cta__inner">
-        <div>
-          <p class="eyebrow eyebrow--light">The conversation begins September 22</p>
-          <h2 id="final-cta-title">Register once. Follow the full series.</h2>
-        </div>
-        <a class="button button--primary" href="#register">Register Free</a>
-      </div>
-    </section>
   </main>
 
   <footer class="site-footer">
@@ -376,6 +354,5 @@
     </div>
   </footer>
 
-  <a class="mobile-register" href="#register">Register Free</a>
 </body>
 </html>
