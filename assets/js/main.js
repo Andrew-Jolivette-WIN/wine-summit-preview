@@ -93,6 +93,62 @@
     scheduleUpdate();
   }
 
+  // Preview only: session videos and Slido URLs are not live.
+  // Closing responses and publishing a follow-up are separate session states.
+  const replayDialog = document.querySelector("[data-replay-dialog]");
+  if (replayDialog) {
+    const stageSelect = replayDialog.querySelector("[data-replay-stage]");
+    const previewStages = new WeakMap();
+    let activeCard;
+    const selectVideo = (choice) => {
+      const followup = choice === "followup" && stageSelect.value === "followup";
+      replayDialog.querySelector("[data-player-title]").textContent = followup ? "Follow-up video preview" : "Session video will appear here";
+      replayDialog.querySelector("[data-player-note]").textContent = followup ? "A separate recording for this session. No video is loaded in this mockup." : "This is a layout preview. The recording is not yet available.";
+      replayDialog.querySelectorAll("[data-video-choice]").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.videoChoice === (followup ? "followup" : "presentation")));
+      });
+    };
+    replayDialog.querySelectorAll("[data-video-choice]").forEach((button) => {
+      button.addEventListener("click", () => selectVideo(button.dataset.videoChoice));
+    });
+    replayDialog.querySelector("[data-followup-watch]").addEventListener("click", () => {
+      selectVideo("followup");
+      const choice = replayDialog.querySelector('[data-video-choice="followup"]');
+      choice.focus();
+      choice.scrollIntoView({ block: "nearest" });
+    });
+    const renderStage = () => {
+      const stage = stageSelect.value;
+      replayDialog.querySelector("[data-participation-panel]").hidden = stage !== "open";
+      replayDialog.querySelector("[data-slido-open]").hidden = stage !== "open";
+      replayDialog.querySelector("[data-slido-closed]").hidden = stage !== "closed";
+      replayDialog.querySelector("[data-followup-pending]").hidden = stage !== "closed";
+      replayDialog.querySelector("[data-followup-section]").hidden = stage !== "followup";
+      replayDialog.querySelector("[data-followup-watch]").hidden = stage !== "followup";
+      replayDialog.querySelector("[data-video-switch]").hidden = stage !== "followup";
+      selectVideo("presentation");
+      if (activeCard) previewStages.set(activeCard, stage);
+    };
+    stageSelect.addEventListener("change", renderStage);
+    document.querySelectorAll("[data-replay-open]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = button.closest("[data-replay-card]");
+        replayDialog.querySelector("#replay-dialog-title").textContent = card.querySelector("h3").textContent;
+        replayDialog.querySelector("[data-replay-date]").textContent = card.querySelector(".replay-card__meta").textContent;
+        replayDialog.querySelector("[data-replay-speaker]").textContent = card.querySelector(".replay-card__speaker").textContent;
+        replayDialog.querySelector("[data-replay-description]").textContent = card.querySelector(".replay-card__description").textContent;
+        activeCard = card;
+        replayDialog.querySelector("[data-followup-parent]").textContent = card.querySelector("h3").textContent;
+        stageSelect.value = previewStages.get(card) || "open";
+        renderStage();
+        replayDialog.querySelector(".replay-preview-settings").open = false;
+        replayDialog.querySelector(".replay-session-details").open = false;
+        replayDialog.showModal();
+      });
+    });
+    replayDialog.querySelector("[data-replay-close]").addEventListener("click", () => replayDialog.close());
+  }
+
   const accordion = document.querySelector("[data-accordion]");
 
   if (accordion) {

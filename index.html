@@ -33,8 +33,12 @@
       <div class="shell hero__grid">
         <div class="hero__content">
           <p class="eyebrow eyebrow--light">An interactive online videocast series</p>
-          <h1 id="hero-title">Wine Business <span>Innovation Summit Series</span></h1>
+          <h1 id="hero-title">Wine Business<br><span>Innovation Summit Series</span></h1>
           <p class="hero__lead">Practical ideas from the people finding new ways forward in today’s changing wine business.</p>
+
+          <div class="hero__actions" aria-label="Primary actions">
+            <a class="button button--primary" href="#register">Register for Series Updates</a>
+          </div>
 
           <ul class="hero__facts" aria-label="Series facts">
             <li>Free to watch</li>
@@ -43,6 +47,21 @@
           </ul>
         </div>
 
+        <div class="hero__media">
+          <div class="video-frame">
+            <div class="video-frame__topline">
+              <span>Welcome to the series</span>
+              <span>2:05</span>
+            </div>
+            <video controls preload="metadata" poster="assets/images/teaser-poster.jpg">
+              <source src="assets/video/innovation-summit-series-welcome.mp4" type="video/mp4">
+              Your browser does not support embedded video.
+            </video>
+            <div class="video-frame__caption">
+              <span class="video-frame__caption-label">Series introduction</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -96,13 +115,14 @@
           <div class="feature-card__aside">
             <p class="feature-card__signup">Free series registration</p>
             <a class="button button--primary" href="#register">Register for Series Updates</a>
-            <p class="feature-card__signup-note">One signup for the full series. Free to watch; registration is required to submit follow-up questions.</p>
+            <p class="feature-card__signup-note">One signup for the full series. Registration is encouraged, but not required to watch.</p>
             <details class="format-details">
               <summary>Premiere format</summary>
             <ul>
               <li>Prerecorded presentation</li>
               <li>Scheduled premiere</li>
               <li>Live audience chat on YouTube</li>
+              <li>Audience participation</li>
               <li>Available on demand afterward</li>
             </ul>
             </details>
@@ -180,10 +200,10 @@
             <li>Upcoming presentation dates</li>
             <li>Premiere reminders</li>
             <li>New on-demand releases</li>
-            <li>Submit questions for follow-up sessions</li>
-            <li>Presenter follow-up information</li>
+            <li>Session participation reminders</li>
+            <li>Follow-up video announcements</li>
           </ul>
-          <p class="registration-copy__note">Anyone can watch for free. Registration is required to submit questions or request more information about a past session.</p>
+          <p class="registration-copy__note">Anyone can watch for free. Register to receive presentation reminders and follow-up video announcements.</p>
         </div>
 
         <div class="form-shell" aria-label="Registration form prototype">
@@ -209,7 +229,6 @@
 
     <section class="section section--intro" id="about-series" aria-labelledby="working-title">
       <div class="shell intro-grid">
-        <div class="series-background">
         <div class="section-heading">
           <p class="eyebrow">The focus</p>
           <h2 id="working-title">The industry’s challenges are well documented. This series asks what is working.</h2>
@@ -225,22 +244,6 @@
             <span>Artificial intelligence</span>
           </div>
         </div>
-        </div>
-        <div class="hero__media">
-          <div class="video-frame">
-            <div class="video-frame__topline">
-              <span>Welcome to the series</span>
-              <span>2:05</span>
-            </div>
-            <video controls preload="metadata" poster="assets/images/teaser-poster.jpg">
-              <source src="assets/video/innovation-summit-series-welcome.mp4" type="video/mp4">
-              Your browser does not support embedded video.
-            </video>
-            <div class="video-frame__caption">
-              <span class="video-frame__caption-label">Series introduction</span>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -249,7 +252,7 @@
         <div class="section-heading section-heading--centered">
           <p class="eyebrow">More than a video library</p>
           <h2 id="process-title">Watch the ideas. Join the conversation.</h2>
-          <p>Each presentation is designed to keep the discussion moving beyond the premiere.</p>
+          <p>Keep exploring the ideas after each presentation.</p>
         </div>
 
         <ol class="process-grid">
@@ -265,29 +268,146 @@
           </li>
           <li class="process-card">
             <span class="process-card__number">03</span>
-            <h3>Ask a question</h3>
-            <p>After a session, registered viewers can submit questions or request more information for later follow-up.</p>
+            <h3>Share your perspective</h3>
+            <p>Answer polls and audience questions using the QR code in the presentation or the session’s participation link while responses are open.</p>
           </li>
           <li class="process-card">
             <span class="process-card__number">04</span>
             <h3>Continue</h3>
-            <p>Watch on demand and return for additional presenter insights and follow-up.</p>
+            <p>Explore audience questions in a follow-up video, available alongside the original presentation.</p>
           </li>
         </ol>
       </div>
     </section>
 
     <section class="section section--archive" id="archive" aria-labelledby="archive-title">
-      <div class="shell archive-panel">
-        <div class="archive-panel__icon" aria-hidden="true">
-          <span></span><span></span><span></span>
+      <div class="shell library">
+        <div class="library__heading">
+          <div>
+            <p class="eyebrow">Watch on demand</p>
+            <h2 id="archive-title">The series library will grow with every presentation.</h2>
+            <p>Revisit each presentation and its follow-up conversation in one place.</p>
+          </div>
+          <p class="library__preview-note"><strong>Library preview</strong> A look at the future archive. These recordings are not yet available.</p>
         </div>
-        <div>
-          <p class="eyebrow">Watch on demand</p>
-          <h2 id="archive-title">The series library will grow with every premiere.</h2>
-          <p>After each presentation goes live, its video, description, participation links, and future follow-up material can live together in a permanent archive.</p>
+        <div class="library__grid">
+          <article class="replay-card replay-card--featured" data-replay-card>
+            <div class="replay-art replay-art--01" aria-hidden="true">
+              <span class="replay-art__series">Wine Business<br>Innovation Summit Series</span>
+              <span class="replay-art__topic">Consumer relevance</span>
+              <span class="replay-art__footer">SESSION 01</span>
+            </div>
+            <div class="replay-card__body">
+              <p class="replay-card__meta">September 22, 2026</p>
+              <h3>From Intimidation to Invitation</h3>
+              <p class="replay-card__speaker">Stephanie Gallo · Jess Druey</p>
+              <p class="replay-card__description">Reaching the next generation of wine consumers. Working title and description; final details forthcoming.</p>
+              <p class="replay-card__pair">Presentation + follow-up</p>
+              <button class="replay-card__open" type="button" data-replay-open aria-haspopup="dialog" aria-label="Preview replay: From Intimidation to Invitation">Preview replay</button>
+            </div>
+          </article>
+          <article class="replay-card" data-replay-card>
+            <div class="replay-art replay-art--02" aria-hidden="true">
+              <span class="replay-art__series">Wine Business<br>Innovation Summit Series</span>
+              <span class="replay-art__topic">Sustainability</span>
+              <span class="replay-art__footer">SESSION 02</span>
+            </div>
+            <div class="replay-card__body">
+              <p class="replay-card__meta">October · Date TBA</p>
+              <h3>Sustainability’s value in sales</h3>
+              <p class="replay-card__speaker">Jeff O’Neill</p>
+              <p class="replay-card__description" hidden>A Q&amp;A exploring evidence from O’Neill Family Vintners.</p>
+              <p class="replay-card__pair">Presentation + follow-up</p>
+              <button class="replay-card__open" type="button" data-replay-open aria-haspopup="dialog" aria-label="Preview replay: Sustainability’s value in sales">Preview replay</button>
+            </div>
+          </article>
+          <article class="replay-card" data-replay-card>
+            <div class="replay-art replay-art--03" aria-hidden="true">
+              <span class="replay-art__series">Wine Business<br>Innovation Summit Series</span>
+              <span class="replay-art__topic">Market outlook</span>
+              <span class="replay-art__footer">SESSION 03</span>
+            </div>
+            <div class="replay-card__body">
+              <p class="replay-card__meta">November · Date TBA</p>
+              <h3>What do the midterm results mean for the wine industry?</h3>
+              <p class="replay-card__speaker">Dave McCuan</p>
+              <p class="replay-card__description" hidden>Presentation details forthcoming.</p>
+              <p class="replay-card__pair">Presentation + follow-up</p>
+              <button class="replay-card__open" type="button" data-replay-open aria-haspopup="dialog" aria-label="Preview replay: What do the midterm results mean for the wine industry?">Preview replay</button>
+            </div>
+          </article>
+          <article class="replay-card" data-replay-card>
+            <div class="replay-art replay-art--04" aria-hidden="true">
+              <span class="replay-art__series">Wine Business<br>Innovation Summit Series</span>
+              <span class="replay-art__topic">Economics</span>
+              <span class="replay-art__footer">SESSION 04</span>
+            </div>
+            <div class="replay-card__body">
+              <p class="replay-card__meta">December · Date TBA</p>
+              <h3>The economy’s peaks versus valleys</h3>
+              <p class="replay-card__speaker">Rob Eyler</p>
+              <p class="replay-card__description" hidden>Opportunities for wine businesses looking toward 2030.</p>
+              <p class="replay-card__pair">Presentation + follow-up</p>
+              <button class="replay-card__open" type="button" data-replay-open aria-haspopup="dialog" aria-label="Preview replay: The economy’s peaks versus valleys">Preview replay</button>
+            </div>
+          </article>
         </div>
+        <p class="library__footnote">Each session brings its presentation, participation link, and follow-up video together. Responses close at the session’s deadline.</p>
       </div>
+      <dialog class="replay-dialog" data-replay-dialog aria-labelledby="replay-dialog-title">
+        <div class="replay-dialog__bar"><span>Library preview</span><button type="button" data-replay-close aria-label="Close replay preview" autofocus>Close <span aria-hidden="true">×</span></button></div>
+        <details class="replay-preview-settings">
+          <summary>Preview session stage</summary>
+          <div class="replay-preview-controls">
+          <label for="replay-stage">Preview session stage</label>
+          <select id="replay-stage" data-replay-stage>
+            <option value="open">Responses open</option>
+            <option value="closed">Responses closed · follow-up pending</option>
+            <option value="followup">Follow-up video available</option>
+          </select>
+          <small>Demo controls only. No recordings or participation links are live.</small>
+          </div>
+        </details>
+        <div class="replay-dialog__layout">
+          <div class="replay-dialog__main">
+            <div class="replay-video-switch" role="group" aria-label="Choose session video" hidden data-video-switch>
+              <button type="button" data-video-choice="presentation" aria-pressed="true">Presentation</button>
+              <button type="button" data-video-choice="followup" aria-pressed="false">Follow-up</button>
+            </div>
+            <div class="replay-dialog__player" aria-live="polite">
+              <span class="replay-art__play" aria-hidden="true">▶</span>
+              <strong data-player-title>Session video will appear here</strong>
+              <p data-player-note>This is a layout preview. The recording is not yet available.</p>
+            </div>
+            <div class="replay-dialog__body">
+          <p class="eyebrow" data-replay-date></p>
+          <h2 id="replay-dialog-title"></h2>
+          <p class="replay-card__speaker" data-replay-speaker></p>
+          <details class="replay-session-details"><summary>Session details</summary><p data-replay-description></p></details>
+            </div>
+          </div>
+          <aside class="replay-dialog__sidebar" aria-label="Participation and follow-up">
+          <div class="replay-dialog__followup" data-participation-panel>
+            <h3>Take the ideas further.</h3>
+            <div data-slido-open>
+              <p>Share your perspective by answering this session’s polls and audience questions. Use the link below or scan the QR code in the video while responses are open.</p>
+              <p class="replay-preview-note">Response deadline: to be announced.</p>
+              <button class="button button--primary" type="button" disabled>Answer session questions</button>
+              <p class="replay-preview-note">Preview only — this session’s participation link is forthcoming.</p>
+            </div>
+          </div>
+          <p data-slido-closed hidden>Responses are now closed for this session.</p>
+          <p class="session-followup__pending" data-followup-pending hidden>Follow-up video coming soon.</p>
+          <section class="session-followup" data-followup-section aria-labelledby="session-followup-title" hidden>
+            <p class="eyebrow">Part 2 · Follow-up</p>
+            <h3 id="session-followup-title">Continue this conversation</h3>
+            <p class="session-followup__parent">Follow-up to <span data-followup-parent></span></p>
+            <p>A closer look at the audience questions and ideas raised during this presentation.</p>
+            <button class="replay-card__open" type="button" data-followup-watch hidden>Watch follow-up</button>
+          </section>
+          </aside>
+        </div>
+      </dialog>
     </section>
 
     <section class="section section--partners" id="partners" aria-labelledby="partners-title">
@@ -331,15 +451,15 @@
           </article>
           <article class="accordion__item">
             <h3><button type="button" aria-expanded="false">Do I need to register to watch?<span aria-hidden="true">+</span></button></h3>
-            <div class="accordion__panel" hidden><p>No. Anyone can watch for free. Registration provides series updates and is required to submit questions for follow-up sessions.</p></div>
+            <div class="accordion__panel" hidden><p>No. Anyone can watch for free. Register to receive series updates and follow-up video announcements.</p></div>
           </article>
           <article class="accordion__item">
             <h3><button type="button" aria-expanded="false">Can I watch later?<span aria-hidden="true">+</span></button></h3>
             <div class="accordion__panel" hidden><p>Yes. Presentations will be available on demand after their scheduled premieres and organized in the series archive.</p></div>
           </article>
           <article class="accordion__item">
-            <h3><button type="button" aria-expanded="false">Can I submit a question?<span aria-hidden="true">+</span></button></h3>
-            <div class="accordion__panel" hidden><p>Yes. Registered viewers can submit questions or request more information about a past presentation for consideration in a follow-up session. This is separate from the live audience chat during the premiere.</p></div>
+            <h3><button type="button" aria-expanded="false">How do I participate?<span aria-hidden="true">+</span></button></h3>
+            <div class="accordion__panel" hidden><p>We use Slido for real-time polls and audience questions. Scan the QR code in the presentation or use the participation link in its viewing panel before the response deadline. A follow-up video addressing audience questions will appear alongside the original presentation.</p></div>
           </article>
         </div>
       </div>
