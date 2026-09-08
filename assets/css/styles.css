@@ -60,6 +60,11 @@
   --hero-title-size: clamp(3.25rem, 6.5vw, 5.8rem);
   --hero-bottom-space: clamp(36px, 4.5vw, 69px);
   --hero-mobile-bottom-space: 40px;
+  --hero-tablet-width: 640px;
+  --hero-tablet-title-size: clamp(3rem, 6.5vw, 3.5rem);
+  --hero-tablet-top-space: 48px;
+  --hero-tablet-bottom-space: 32px;
+  --hero-tablet-gap: 32px;
   --hero-banner-background:
     radial-gradient(circle at 82% 14%, rgba(66, 121, 160, 0.35), transparent 29%),
     radial-gradient(circle at 7% 88%, rgba(122, 41, 64, 0.32), transparent 30%),
@@ -2595,6 +2600,20 @@ input:focus-visible {
     }
   }
 }
+/* A centered shared column keeps the stacked tablet hero balanced. */
+@media (min-width: 721px) and (max-width: 980px) {
+  .hero {
+    padding-top: var(--hero-tablet-top-space);
+    padding-bottom: var(--hero-tablet-bottom-space);
+  }
+  .hero__grid {
+    max-width: var(--hero-tablet-width);
+    gap: var(--hero-tablet-gap);
+  }
+  .hero__content, .hero__media { width: 100%; max-width: none; }
+  .hero h1 { font-size: var(--hero-tablet-title-size); }
+}
+
 @media (max-width: 720px) {
   .library__grid[data-visible-count="3"], .replay-card--compact { grid-template-columns: minmax(0, 1fr); }
   .library__older-hint { display: none; }
