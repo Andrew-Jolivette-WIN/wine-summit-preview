@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Prototype landing page for the Wine Business Innovation Summit Series, presented by Wine Industry Network and the Wine Business Institute at Sonoma State University.">
   <title>Wine Business Innovation Summit Series</title>
-  <link rel="stylesheet" href="assets/css/styles.css">
-  <script defer src="assets/js/main.js"></script>
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260908-recording-states">
+  <script defer src="assets/js/main.js?v=20260908-followup-coming-soon"></script>
 </head>
 <body class="page--program-first">
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -290,8 +290,21 @@
           </div>
           <p class="library__preview-note"><strong>Library preview</strong> A look at the future archive. These recordings are not yet available.</p>
         </div>
-        <div class="library__grid">
-          <article class="replay-card replay-card--featured" data-replay-card>
+        <div class="library__demo" data-library-demo hidden>
+          <label for="library-size">Preview library size</label>
+          <select id="library-size" data-library-size aria-describedby="library-demo-note">
+            <option value="1">1 session</option>
+            <option value="2">2 sessions</option>
+            <option value="3">3 sessions</option>
+            <option value="4" selected>4 sessions</option>
+            <option value="8">8 sessions</option>
+            <option value="12">12 sessions</option>
+          </select>
+          <p id="library-demo-note">Layout examples only. Sessions 05–12 are placeholders.</p>
+        </div>
+        <p class="library__count" data-library-count aria-live="polite" hidden></p>
+        <div class="library__grid" data-library-grid>
+          <article class="replay-card replay-card--featured" data-replay-card data-preview-stage="followup">
             <div class="replay-art replay-art--01" aria-hidden="true">
               <span class="replay-art__series">Wine Business<br>Innovation Summit Series</span>
               <span class="replay-art__topic">Consumer relevance</span>
@@ -302,11 +315,11 @@
               <h3>From Intimidation to Invitation</h3>
               <p class="replay-card__speaker">Stephanie Gallo · Jess Druey</p>
               <p class="replay-card__description">Reaching the next generation of wine consumers. Working title and description; final details forthcoming.</p>
-              <p class="replay-card__pair">Presentation + follow-up</p>
+              <p class="replay-card__pair" data-recording-badges hidden></p>
               <button class="replay-card__open" type="button" data-replay-open aria-haspopup="dialog" aria-label="Preview replay: From Intimidation to Invitation">Preview replay</button>
             </div>
           </article>
-          <article class="replay-card" data-replay-card>
+          <article class="replay-card" data-replay-card data-preview-stage="closed">
             <div class="replay-art replay-art--02" aria-hidden="true">
               <span class="replay-art__series">Wine Business<br>Innovation Summit Series</span>
               <span class="replay-art__topic">Sustainability</span>
@@ -317,11 +330,11 @@
               <h3>Sustainability’s value in sales</h3>
               <p class="replay-card__speaker">Jeff O’Neill</p>
               <p class="replay-card__description" hidden>A Q&amp;A exploring evidence from O’Neill Family Vintners.</p>
-              <p class="replay-card__pair">Presentation + follow-up</p>
+              <p class="replay-card__pair" data-recording-badges hidden></p>
               <button class="replay-card__open" type="button" data-replay-open aria-haspopup="dialog" aria-label="Preview replay: Sustainability’s value in sales">Preview replay</button>
             </div>
           </article>
-          <article class="replay-card" data-replay-card>
+          <article class="replay-card" data-replay-card data-preview-stage="open">
             <div class="replay-art replay-art--03" aria-hidden="true">
               <span class="replay-art__series">Wine Business<br>Innovation Summit Series</span>
               <span class="replay-art__topic">Market outlook</span>
@@ -332,11 +345,11 @@
               <h3>What do the midterm results mean for the wine industry?</h3>
               <p class="replay-card__speaker">Dave McCuan</p>
               <p class="replay-card__description" hidden>Presentation details forthcoming.</p>
-              <p class="replay-card__pair">Presentation + follow-up</p>
+              <p class="replay-card__pair" data-recording-badges hidden></p>
               <button class="replay-card__open" type="button" data-replay-open aria-haspopup="dialog" aria-label="Preview replay: What do the midterm results mean for the wine industry?">Preview replay</button>
             </div>
           </article>
-          <article class="replay-card" data-replay-card>
+          <article class="replay-card" data-replay-card data-preview-stage="upcoming">
             <div class="replay-art replay-art--04" aria-hidden="true">
               <span class="replay-art__series">Wine Business<br>Innovation Summit Series</span>
               <span class="replay-art__topic">Economics</span>
@@ -347,12 +360,46 @@
               <h3>The economy’s peaks versus valleys</h3>
               <p class="replay-card__speaker">Rob Eyler</p>
               <p class="replay-card__description" hidden>Opportunities for wine businesses looking toward 2030.</p>
-              <p class="replay-card__pair">Presentation + follow-up</p>
+              <p class="replay-card__pair" data-recording-badges hidden></p>
               <button class="replay-card__open" type="button" data-replay-open aria-haspopup="dialog" aria-label="Preview replay: The economy’s peaks versus valleys">Preview replay</button>
             </div>
           </article>
         </div>
-        <p class="library__footnote">Each session brings its presentation, participation link, and follow-up video together. Responses close at the session’s deadline.</p>
+        <details class="library__older" data-library-older hidden>
+          <summary><span data-library-older-label>View older sessions</span><span class="library__older-hint">Explore the archive</span></summary>
+          <div class="library__older-list" id="older-session-list" data-library-older-list></div>
+          <div class="library__older-footer">
+            <p data-library-older-count aria-live="polite"></p>
+            <button class="library__more" type="button" data-library-more aria-controls="older-session-list" hidden>Show more sessions</button>
+          </div>
+        </details>
+        <template id="library-example-card">
+          <article class="replay-card" data-replay-card>
+            <div class="replay-art" aria-hidden="true">
+              <span class="replay-art__series">Wine Business<br>Innovation Summit Series</span>
+              <span class="replay-art__topic">More ideas.<br>More possibilities.</span>
+              <span class="replay-art__footer"></span>
+            </div>
+            <div class="replay-card__body">
+              <p class="replay-card__meta">Layout example · Not scheduled</p>
+              <h3></h3>
+              <p class="replay-card__speaker">Example speaker</p>
+              <p class="replay-card__description" hidden>This placeholder shows how the library grows. It does not represent a confirmed presentation.</p>
+              <p class="replay-card__pair" data-recording-badges hidden></p>
+              <button class="replay-card__open" type="button" data-replay-open aria-haspopup="dialog">Preview replay</button>
+            </div>
+          </article>
+        </template>
+        <template id="recording-badge-template">
+          <span class="recording-badge">
+            <button class="recording-badge__trigger" type="button">
+              <svg data-recording-icon="presentation" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m10 8 6 4-6 4Z"/></svg>
+              <svg data-recording-icon="followup" viewBox="0 0 24 24" aria-hidden="true" focusable="false" hidden><path d="M20 11a7 7 0 0 1-7 7H8l-5 3v-7a7 7 0 0 1 7-7h3a7 7 0 0 1 7 4Z"/><path d="M8 3h7a6 6 0 0 1 6 6M8 12h7M8 15h4"/></svg>
+            </button>
+            <span class="recording-badge__tooltip" role="tooltip" hidden></span>
+          </span>
+        </template>
+        <p class="library__footnote">Each session brings its presentation, participation link, and follow-up video together. Responses close at the session’s deadline. Recording icons reflect the selected demo stage; no recordings are live in this preview.</p>
       </div>
       <dialog class="replay-dialog" data-replay-dialog aria-labelledby="replay-dialog-title">
         <div class="replay-dialog__bar"><span>Library preview</span><button type="button" data-replay-close aria-label="Close replay preview" autofocus>Close <span aria-hidden="true">×</span></button></div>
@@ -361,8 +408,9 @@
           <div class="replay-preview-controls">
           <label for="replay-stage">Preview session stage</label>
           <select id="replay-stage" data-replay-stage>
+            <option value="upcoming">Session video coming soon</option>
             <option value="open">Responses open</option>
-            <option value="closed">Responses closed · follow-up pending</option>
+            <option value="closed">Responses closed · follow-up coming soon</option>
             <option value="followup">Follow-up video available</option>
           </select>
           <small>Demo controls only. No recordings or participation links are live.</small>
@@ -371,8 +419,8 @@
         <div class="replay-dialog__layout">
           <div class="replay-dialog__main">
             <div class="replay-video-switch" role="group" aria-label="Choose session video" hidden data-video-switch>
-              <button type="button" data-video-choice="presentation" aria-pressed="true">Presentation</button>
-              <button type="button" data-video-choice="followup" aria-pressed="false">Follow-up</button>
+              <button type="button" data-video-choice="presentation" aria-pressed="true">Session video</button>
+              <button type="button" data-video-choice="followup" aria-pressed="false">Follow-up video</button>
             </div>
             <div class="replay-dialog__player" aria-live="polite">
               <span class="replay-art__play" aria-hidden="true">▶</span>
@@ -396,6 +444,7 @@
               <p class="replay-preview-note">Preview only — this session’s participation link is forthcoming.</p>
             </div>
           </div>
+          <p class="session-followup__pending" data-recording-pending hidden>The session video is coming soon. You’ll find participation details here when it’s available.</p>
           <p data-slido-closed hidden>Responses are now closed for this session.</p>
           <p class="session-followup__pending" data-followup-pending hidden>Follow-up video coming soon.</p>
           <section class="session-followup" data-followup-section aria-labelledby="session-followup-title" hidden>
