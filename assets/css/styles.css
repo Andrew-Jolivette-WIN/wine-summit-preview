@@ -52,6 +52,8 @@
   --replay-art-space: clamp(24px, 3vw, 40px);
   --replay-blue-background: linear-gradient(135deg, var(--navy-deep), var(--blue));
   --replay-wine-background: linear-gradient(135deg, var(--wine-dark), var(--wine));
+  --presenter-dialog-width: 740px;
+  --presenter-panel-space: clamp(20px, 3vw, 32px);
   --replay-dialog-width: 1080px;
   --replay-sidebar-width: 300px;
   --replay-panel-space: 24px;
@@ -2709,4 +2711,25 @@ input:focus-visible {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
+}
+
+/* Presenter inquiry: shared component, using each version's own brand tokens. */
+.presenter-invitation > div { flex: 1; min-width: 0; }
+.presenter-invitation .button { flex-shrink: 0; color: var(--wine); border-color: var(--wine); background: var(--paper); }
+.presenter-dialog { width: min(var(--presenter-dialog-width), calc(100% - 32px)); }
+.presenter-dialog__intro { padding: var(--presenter-panel-space) var(--presenter-panel-space) 0; }
+.presenter-dialog__intro h2 { margin-bottom: 12px; font-size: clamp(1.7rem, 3vw, 2.25rem); }
+.presenter-dialog__intro .eyebrow { margin-bottom: 12px; }
+.presenter-dialog__intro p { font-size: 0.9rem; }
+.presenter-preview-note { padding: 12px 16px; border-left: 2px solid var(--copper); background: var(--cream); color: var(--ink-soft); }
+.presenter-form { padding: 0 var(--presenter-panel-space) var(--presenter-panel-space); }
+.presenter-form fieldset { display: grid; gap: 16px; min-width: 0; margin: 0; padding: 0; border: 0; }
+.presenter-field-note { padding: 0 0 16px; color: var(--ink-soft); font-size: 0.76rem; }
+.presenter-form input[type="url"], .presenter-form textarea { width: 100%; min-height: 48px; padding: 11px 13px; border: 1px solid var(--line); border-radius: var(--radius-sm); color: var(--ink); background: var(--white); font: inherit; }
+.presenter-form textarea { resize: vertical; }
+.presenter-form .form-message:empty { display: none; }
+body:has(.presenter-dialog[open]) { overflow: hidden; }
+@media (max-width: 720px) {
+  .presenter-form .field-row { grid-template-columns: minmax(0, 1fr); }
+  .presenter-invitation .button { width: 100%; }
 }

@@ -300,6 +300,25 @@
     });
   }
 
+  // Separate presenter inquiry prototype; replace its form with Jotform later.
+  const presenterDialog = document.querySelector("#presenter-dialog");
+  const presenterTrigger = document.querySelector("[data-presenter-open]");
+  if (presenterDialog && presenterTrigger) {
+    const form = presenterDialog.querySelector("[data-presenter-form]");
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      presenterDialog.querySelector("[data-presenter-message]").textContent = "Preview complete. In the live form, your inquiry would be sent to the series team. Nothing has been sent or saved.";
+    });
+    form.querySelector("fieldset").disabled = false;
+    presenterTrigger.addEventListener("click", () => presenterDialog.showModal());
+    presenterDialog.querySelector("[data-presenter-close]").addEventListener("click", () => presenterDialog.close());
+    presenterDialog.addEventListener("close", () => {
+      form.reset();
+      presenterDialog.querySelector("[data-presenter-message]").textContent = "";
+      presenterTrigger.focus({ preventScroll: true });
+    });
+  }
+
   const prototypeForm = document.querySelector("[data-prototype-form]");
 
   if (prototypeForm) {

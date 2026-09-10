@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Prototype landing page for the Wine Business Innovation Summit Series, presented by Wine Industry Network and the Wine Business Institute at Sonoma State University.">
   <title>Wine Business Innovation Summit Series</title>
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260908-tablet-hero">
-  <script defer src="assets/js/main.js?v=20260908-followup-coming-soon"></script>
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260910-presenter-inquiry">
+  <script defer src="assets/js/main.js?v=20260910-presenter-inquiry"></script>
 </head>
 <body class="page--program-first">
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -134,7 +134,7 @@
       <div class="shell">
         <div class="section-topline section-topline--schedule">
           <div>
-            <p class="eyebrow">Upcoming presentations</p>
+            <p class="eyebrow">Upcoming sessions</p>
             <h2 id="schedule-title">A growing schedule of practical conversations</h2>
           </div>
         </div>
@@ -143,7 +143,7 @@
           <article class="session-card session-card--first">
             <div class="session-card__meta">
               <span class="status-pill status-pill--date">September 22</span>
-              <span>Presentation 01</span>
+              <span>Session 01</span>
             </div>
             <h3>From Intimidation to Invitation</h3>
             <p class="session-card__subtitle">Working title; final details forthcoming.</p>
@@ -153,7 +153,7 @@
           <article class="session-card">
             <div class="session-card__meta">
               <span class="status-pill">October · Date TBA</span>
-              <span>Presentation 02</span>
+              <span>Session 02</span>
             </div>
             <h3>Sustainability’s value in sales</h3>
             <p class="session-card__subtitle">A Q&amp;A exploring evidence from O’Neill Family Vintners.</p>
@@ -163,7 +163,7 @@
           <article class="session-card">
             <div class="session-card__meta">
               <span class="status-pill">November · Date TBA</span>
-              <span>Presentation 03</span>
+              <span>Session 03</span>
             </div>
             <h3>What do the midterm results mean for the wine industry?</h3>
             <p class="session-card__speaker">Dave McCuan</p>
@@ -172,22 +172,54 @@
           <article class="session-card">
             <div class="session-card__meta">
               <span class="status-pill">December · Date TBA</span>
-              <span>Presentation 04</span>
+              <span>Session 04</span>
             </div>
             <h3>The economy’s peaks versus valleys</h3>
             <p class="session-card__subtitle">Opportunities for wine businesses looking toward 2030.</p>
             <p class="session-card__speaker">Rob Eyler</p>
           </article>
 
-          <article class="session-card session-card--add">
+          <article class="session-card session-card--add presenter-invitation">
             <div>
-              <span class="session-card__plus" aria-hidden="true">+</span>
-              <h3>More presentations are in development.</h3>
+              <h3>More sessions are in development.</h3>
+              <p>Interested in presenting? Share an innovation that could help the wine industry move forward.</p>
             </div>
+            <button class="button button--secondary" type="button" data-presenter-open aria-haspopup="dialog" aria-controls="presenter-dialog">Inquire about presenting</button>
           </article>
         </div>
       </div>
     </section>
+
+    <dialog class="replay-dialog presenter-dialog" id="presenter-dialog" aria-labelledby="presenter-title" aria-describedby="presenter-intro">
+      <div class="replay-dialog__bar"><span>Presenter inquiry</span><button type="button" data-presenter-close aria-label="Close presenter inquiry">Close <span aria-hidden="true">×</span></button></div>
+      <div class="presenter-dialog__intro">
+        <p class="eyebrow">Bring your ideas to the series</p>
+        <h2 id="presenter-title" tabindex="-1" autofocus>What’s moving your wine business forward?</h2>
+        <p id="presenter-intro">Tell us about your innovation and your interest in sharing it in a future session.</p>
+        <p class="presenter-preview-note" id="presenter-preview-note">Form preview only. Nothing entered here is sent or saved.</p>
+      </div>
+      <form class="prototype-form presenter-form" data-presenter-form aria-describedby="presenter-preview-note">
+        <fieldset disabled>
+          <legend class="presenter-field-note">All fields are required except the profile links.</legend>
+          <div class="field-row">
+            <label for="presenter-first">First name<input id="presenter-first" name="firstName" type="text" autocomplete="given-name" required></label>
+            <label for="presenter-last">Last name<input id="presenter-last" name="lastName" type="text" autocomplete="family-name" required></label>
+          </div>
+          <label for="presenter-email">Email address<input id="presenter-email" name="email" type="email" autocomplete="email" required></label>
+          <div class="field-row">
+            <label for="presenter-company">Company<input id="presenter-company" name="company" type="text" autocomplete="organization" required></label>
+            <label for="presenter-title-field">Title<input id="presenter-title-field" name="title" type="text" autocomplete="organization-title" required></label>
+          </div>
+          <label for="presenter-innovation">Explain how your wine business innovation will support the wine industry's recovery?<textarea id="presenter-innovation" name="innovation" rows="4" required></textarea></label>
+          <div class="field-row">
+            <label for="presenter-linkedin">LinkedIn profile (optional)<input id="presenter-linkedin" name="linkedin" type="url" placeholder="https://www.linkedin.com/in/…"></label>
+            <label for="presenter-bio">Bio link (optional)<input id="presenter-bio" name="bio" type="url" placeholder="https://…"></label>
+          </div>
+          <button class="button button--primary" type="submit">Preview inquiry submission</button>
+        </fieldset>
+        <p class="form-message" role="status" data-presenter-message></p>
+      </form>
+    </dialog>
 
     <section class="section section--registration" id="register" aria-labelledby="register-title">
       <div class="shell registration-grid">
