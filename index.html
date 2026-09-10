@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Prototype landing page for the Wine Business Innovation Summit Series, presented by Wine Industry Network and the Wine Business Institute at Sonoma State University.">
   <title>Wine Business Innovation Summit Series</title>
-  <link rel="stylesheet" href="assets/css/styles.css?v=20260910-presenter-inquiry">
-  <script defer src="assets/js/main.js?v=20260910-presenter-inquiry"></script>
+  <link rel="stylesheet" href="assets/css/styles.css?v=20260910-cross-spacing">
+  <script defer src="assets/js/main.js?v=20260910-portrait-hair"></script>
 </head>
 <body class="page--program-first">
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -19,9 +19,9 @@
       </a>
 
       <div class="partner-lockup" aria-label="Presented by Wine Industry Network and the Wine Business Institute at Sonoma State University">
-        <span class="wordmark wordmark--win">Wine Industry<br>Network</span>
+        <img class="partner-lockup__logo partner-lockup__logo--win" src="assets/images/logos/win-logo-white.png" width="1920" height="850" alt="Wine Industry Network">
         <span class="partner-lockup__x" aria-hidden="true">×</span>
-        <span class="wordmark wordmark--wbi">Wine Business Institute<br><small>Sonoma State University</small></span>
+        <span class="partner-lockup__wbi"><img src="assets/images/logos/wbi-logo-horizontal.jpg" width="660" height="130" alt="Sonoma State University, School of Business &amp; Economics — Wine Business Institute"></span>
       </div>
 
     </div>
@@ -500,12 +500,12 @@
 
         <div class="partner-grid">
           <article class="partner-card">
-            <p class="partner-card__mark">WBI</p>
+            <div class="partner-card__logo"><img src="assets/images/logos/wbi-logo-horizontal.jpg" width="660" height="130" loading="lazy" alt="Sonoma State University, School of Business &amp; Economics — Wine Business Institute"></div>
             <h3>Wine Business Institute</h3>
             <p>Research, education, academic perspective, and access to wine-business leaders and subject-matter experts.</p>
           </article>
           <article class="partner-card">
-            <p class="partner-card__mark partner-card__mark--win">WIN</p>
+            <div class="partner-card__logo partner-card__logo--win"><img src="assets/images/logos/win-logo-color.png" width="1000" height="443" loading="lazy" alt="Wine Industry Network"></div>
             <h3>Wine Industry Network</h3>
             <p>Content production, digital distribution, industry promotion, and connections with wine professionals across North America.</p>
           </article>
@@ -544,6 +544,19 @@
         </div>
       </div>
     </section>
+
+  <dialog class="replay-dialog speaker-dialog" id="speaker-dialog" aria-labelledby="speaker-profile-name">
+    <div class="replay-dialog__bar"><span data-speaker-profile-label>Speaker profile</span><button type="button" data-speaker-close aria-label="Close speaker profile" autofocus>Close <span aria-hidden="true">×</span></button></div>
+    <div class="speaker-dialog__body">
+      <div class="speaker-dialog__heading">
+        <span class="speaker__avatar speaker__avatar--profile" data-speaker-portrait aria-hidden="true"></span>
+        <div><h2 id="speaker-profile-name"></h2><p class="speaker-dialog__role" data-speaker-role hidden></p></div>
+      </div>
+      <p class="speaker-dialog__notice" data-speaker-preview hidden>Profile preview: headshot, biography, and links are awaiting confirmation.</p>
+      <div class="speaker-dialog__bio"><h3>Biography</h3><p data-speaker-bio></p></div>
+      <nav class="speaker-dialog__links" data-speaker-links aria-label="Speaker profile links" hidden></nav>
+    </div>
+  </dialog>
 
   </main>
 

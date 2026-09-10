@@ -269,7 +269,7 @@
         const card = button.closest("[data-replay-card]");
         replayDialog.querySelector("#replay-dialog-title").textContent = card.querySelector("h3").textContent;
         replayDialog.querySelector("[data-replay-date]").textContent = card.querySelector(".replay-card__meta").textContent;
-        replayDialog.querySelector("[data-replay-speaker]").textContent = card.querySelector(".replay-card__speaker").textContent;
+        replayDialog.querySelector("[data-replay-speaker]").replaceChildren(...Array.from(card.querySelector(".replay-card__speaker").childNodes, (node) => node.cloneNode(true)));
         replayDialog.querySelector("[data-replay-description]").textContent = card.querySelector(".replay-card__description").textContent;
         activeCard = card;
         replayDialog.querySelector("[data-followup-parent]").textContent = card.querySelector("h3").textContent;
@@ -316,6 +316,125 @@
       form.reset();
       presenterDialog.querySelector("[data-presenter-message]").textContent = "";
       presenterTrigger.focus({ preventScroll: true });
+    });
+  }
+
+  // One profile per speaker, reused across featured, schedule, and library entries.
+  // Supply approved details here. Link format: { label: "LinkedIn", url: "https://..." }.
+  // Remove preview: true when ready; incomplete profiles then remain plain names.
+  const speakerProfiles = {
+    "Stephanie Gallo": {
+      initials: "SG",
+      headshot: "",
+      placeholder: "assets/images/speaker-placeholder.svg",
+      title: "Sample role: Vice President of Innovation",
+      company: "Example Winery",
+      bio: "This illustrative biography shows how a speaker’s experience and perspective could be introduced. Our sample speaker brings together consumer research, creative marketing, and practical experimentation to help wine businesses reach new audiences.\n\nTheir sample session explores approachable ways to test ideas, build stronger customer relationships, and turn lessons from small pilot projects into lasting improvements.",
+      links: [
+        { label: "LinkedIn", url: "https://example.com/?profile=linkedin" },
+        { label: "Company website", url: "https://example.com/?profile=company" },
+        { label: "Full biography", url: "https://example.com/?profile=bio" }
+      ],
+      preview: true,
+      previewNote: "Layout sample only: the illustrated portrait, role, company, and biography are fictional placeholders. All three links lead to example.com."
+    },
+    "Jess Druey": { initials: "JD", headshot: "", placeholder: "assets/images/speaker-placeholder.svg", title: "", company: "", bio: "", links: [], preview: true },
+    "Jeff O’Neill": { initials: "JO", headshot: "", placeholder: "assets/images/speaker-placeholder-male.svg?v=2", title: "", company: "", bio: "", links: [], preview: true },
+    "Dave McCuan": { initials: "DM", headshot: "", placeholder: "assets/images/speaker-placeholder-male.svg?v=2", title: "", company: "", bio: "", links: [], preview: true },
+    "Rob Eyler": { initials: "RE", headshot: "", placeholder: "assets/images/speaker-placeholder-male.svg?v=2", title: "", company: "", bio: "", links: [], preview: true }
+  };
+  const speakerDialog = document.querySelector("#speaker-dialog");
+  if (speakerDialog) {
+    let profileOpener;
+    const hasProfile = (profile) => profile && (profile.preview || profile.bio || profile.links.length);
+    const paintPortrait = (element, profile) => {
+      element.replaceChildren(document.createTextNode(profile.initials));
+      // Actual headshot -> selected illustration -> initials if both fail.
+      const sources = [...new Set([profile.headshot, profile.placeholder].filter(Boolean))];
+      const showNext = () => {
+        const source = sources.shift();
+        if (!source) return;
+        const image = document.createElement("img");
+        image.alt = "";
+        image.hidden = true;
+        image.addEventListener("load", () => { image.hidden = false; }, { once: true });
+        image.addEventListener("error", () => { image.remove(); showNext(); }, { once: true });
+        image.src = source;
+        element.append(image);
+      };
+      showNext();
+    };
+    const configureTrigger = (button, name) => {
+      button.type = "button";
+      button.dataset.speakerProfile = name;
+      button.classList.add("speaker-profile-trigger");
+      button.setAttribute("aria-haspopup", "dialog");
+      button.setAttribute("aria-controls", "speaker-dialog");
+      button.setAttribute("aria-label", `View speaker profile: ${name}`);
+      button.title = "View speaker profile";
+    };
+    document.querySelectorAll(".speakers .speaker").forEach((speaker) => {
+      const name = speaker.querySelector("strong").textContent.trim();
+      const profile = speakerProfiles[name];
+      if (!profile) return;
+      paintPortrait(speaker.querySelector(".speaker__avatar"), profile);
+      if (!hasProfile(profile)) return;
+      const trigger = document.createElement("button");
+      trigger.className = "speaker";
+      configureTrigger(trigger, name);
+      trigger.append(...speaker.childNodes);
+      speaker.replaceWith(trigger);
+    });
+    document.querySelectorAll(".session-card__speaker, .replay-card__speaker").forEach((line) => {
+      const names = line.textContent.split(" · ");
+      line.replaceChildren();
+      names.forEach((name, index) => {
+        if (index) line.append(document.createTextNode(" · "));
+        if (!hasProfile(speakerProfiles[name])) { line.append(document.createTextNode(name)); return; }
+        const trigger = document.createElement("button");
+        trigger.className = "speaker-name-trigger";
+        trigger.textContent = name;
+        configureTrigger(trigger, name);
+        line.append(trigger);
+      });
+    });
+    document.addEventListener("click", (event) => {
+      const trigger = event.target.closest("[data-speaker-profile]");
+      if (!trigger) return;
+      const name = trigger.dataset.speakerProfile;
+      const profile = speakerProfiles[name];
+      if (!hasProfile(profile)) return;
+      profileOpener = trigger;
+      speakerDialog.querySelector("#speaker-profile-name").textContent = name;
+      speakerDialog.querySelector("[data-speaker-profile-label]").textContent = profile.preview ? "Speaker profile preview" : "Speaker profile";
+      paintPortrait(speakerDialog.querySelector("[data-speaker-portrait]"), profile);
+      const role = speakerDialog.querySelector("[data-speaker-role]");
+      role.textContent = [profile.title, profile.company].filter(Boolean).join(" · ");
+      role.hidden = !role.textContent;
+      speakerDialog.querySelector("[data-speaker-preview]").hidden = !profile.preview;
+      speakerDialog.querySelector("[data-speaker-preview]").textContent = profile.previewNote || "Profile preview: headshot, biography, and links are awaiting confirmation.";
+      speakerDialog.querySelector("[data-speaker-bio]").textContent = profile.bio || "A short speaker biography will appear here, introducing their background, expertise, and the perspective they bring to the series.";
+      speakerDialog.querySelector(".speaker-dialog__bio").hidden = !profile.bio && !profile.preview;
+      const links = speakerDialog.querySelector("[data-speaker-links]");
+      links.replaceChildren();
+      profile.links.forEach(({ label, url }) => {
+        let parsed;
+        try { parsed = new URL(url); } catch { return; }
+        if (!["https:", "http:"].includes(parsed.protocol) || !label) return;
+        const link = document.createElement("a");
+        link.href = parsed.href;
+        link.textContent = label;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.setAttribute("aria-label", `${name}: ${label} (opens in a new tab)`);
+        links.append(link);
+      });
+      links.hidden = !links.childElementCount;
+      speakerDialog.showModal();
+    });
+    speakerDialog.querySelector("[data-speaker-close]").addEventListener("click", () => speakerDialog.close());
+    speakerDialog.addEventListener("close", () => {
+      if (profileOpener?.isConnected) profileOpener.focus({ preventScroll: true });
     });
   }
 

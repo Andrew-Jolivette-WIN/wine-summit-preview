@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 320" role="img" aria-label="Illustrated placeholder portrait">
+  <defs><linearGradient id="background" x2="1" y2="1"><stop stop-color="#dce8ef"/><stop offset="1" stop-color="#f7f2e8"/></linearGradient></defs>
+  <rect width="320" height="320" fill="url(#background)"/>
+  <circle cx="246" cy="68" r="78" fill="#c98a56" opacity=".16"/>
+  <path d="M45 320v-32c0-63 51-102 115-102s115 39 115 102v32" fill="#102c44"/>
+  <path d="M117 202l43 60 43-60-21-14h-44z" fill="#fffdf8"/>
+  <path d="M87 132c0-63 30-91 74-91 48 0 75 35 72 91l-7 77-39-17h-54l-47 18z" fill="#7a2940"/>
+  <ellipse cx="160" cy="126" rx="49" ry="61" fill="#c98a56"/>
+  <path d="M108 119c1-51 22-71 54-71 38 0 57 29 57 65-28-8-48-26-60-44-6 27-22 44-51 50z" fill="#7a2940"/>
+  <path d="M136 179v29l24 23 24-23v-29" fill="#c98a56"/>
+  <path d="M76 290h168" stroke="#c98a56" stroke-width="2" opacity=".4"/>
+</svg>
